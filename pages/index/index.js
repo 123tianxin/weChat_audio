@@ -30,7 +30,6 @@ Page({
     currentPosition: 0,
     audioIndex: 0,
     sliderValue: 0,
-    isDetail:false,
     pauseStatus: true,
     timer: '',
     barrageList: [],//储存弹幕对象数组
@@ -243,7 +242,7 @@ Page({
   onShareAppMessage: function () {
     let that = this
     return {
-      title: 'light轻音乐：' + that.data.audioList[that.data.audioIndex].name,
+      title: '鱼乐七天：' + that.data.audioList[that.data.audioIndex].name,
       success: function(res) {
         wx.showToast({
           title: '分享成功',
@@ -260,13 +259,4 @@ Page({
       }
     }
   },
-  exdetail: function () {
-    console.log(this.data.isDetail)
-    if (this.data.isDetail == false) {
-      this.setData({ isDetail: true })
-    }
-    else {
-      this.setData({ isDetail: false })
-    }
-  }
 })

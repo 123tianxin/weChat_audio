@@ -1,4 +1,8 @@
 /**index.wxss**/
+page{
+  height:100%;
+  width: 100%;
+} 
 .container{
   height: 100%;
   width: 100%;
@@ -43,15 +47,6 @@
   justify-content: center; 
   align-items: center;
 }
-.introduction{
-  text-align: center;
-  width: 90%;
-  margin-left:5%;
-  margin-right:5%;
-  font-size: 1.5rem;
-  opacity: 0.3;
-  
-  }
 .rotate-disk{
   width: 600rpx;
   height: 600rpx;
@@ -130,12 +125,11 @@
   justify-content: center;
   align-items: center;
 }
-.operation-icon{
-}
 .icon-prev{
   /*background-image: url('../../assets/img/icon.png');
   background-repeat: no-repeat;
   background-position: -76px -153px;*/
+  margin: 0 20rpx;
   width: 80rpx;
   height: 80rpx;
 }
@@ -144,21 +138,22 @@
   background-repeat: no-repeat;
   background-position: -136px -153px;*/
   margin: 0 20rpx;
-  width: 98rpx;
-  height: 98rpx;
+  width: 80rpx;
+  height: 80rpx;
 }
 .icon-pause{
   /*background-image: url('../../assets/img/icon.png');
   background-repeat: no-repeat;
   background-position: -178px -193px;*/
   margin: 0 20rpx;
-  width: 98rpx;
-  height: 98rpx;
+  width: 80rpx;
+  height: 80rpx;
 }
 .icon-next{
   /*background-image: url('../../assets/img/icon.png');
   background-repeat: no-repeat;
   background-position: -204px -154px;*/
+  margin: 0 20rpx;
   width: 80rpx;
   height: 80rpx;
 }
@@ -220,12 +215,12 @@ animation-fill-mode: none;
 .doommview{
   margin-top: 30%;
   z-index: 3;
-  height: 60%;
+  height: 50%;
   width: 100%;
   position: absolute;
 }
 .icon-estimate{
-  margin: 0 40rpx;
+  margin: 0 20rpx;
   width: 80rpx;
   height: 80rpx;
 }

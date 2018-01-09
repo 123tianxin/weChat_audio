@@ -19,14 +19,10 @@
     </block>
   </view>
     <!--旋转图-->
-    <view class="rotate-disk-container" wx:if="{{isDetail==false}}" bindtap="exdetail">
+    <view class="rotate-disk-container">
       <view class="rotate-disk {{pauseStatus === false ? 'rotate-360' : 'rotate-360-paused'}}">
         <image class="poster" src="{{imageURL}}"></image>
       </view>
-    </view>
-    <view class="dj-introduction" bindtap="exdetail" wx:else>
-     <text selectable='false' class='introduction'>电台心声</text>
-     <text selectable='false' class='introduction'>圣诞将至, 我们开始培养你的恋爱细胞.子涵亲自授课, 请做好笔记</text>
     </view>
     <!--操作-->
     <view class="title-container">
