@@ -1,0 +1,35 @@
+{
+  "pages": [
+    
+    "pages/welcome/welcome",
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/list/list"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#FF0000",
+    "navigationBarTitleText": "鱼乐七天电台",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "情感",
+        "iconPath": "assets/img/today2.png",
+        "selectedIconPath": "assets/img/today.png"
+      },
+      {
+        "pagePath": "pages/list/list",
+        "text": "往期",
+        "iconPath": "assets/img/past2.png",
+        "selectedIconPath": "assets/img/past.png"
+      }
+    ],
+    "color": "#363636",
+    "backgroundColor": "#FF0000",
+    "selectedColor": "#ff2d55",
+    "opacity": 1
+  }
+}

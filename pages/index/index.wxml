@@ -1,0 +1,61 @@
+<!--index.wxml-->
+<view class="container">
+  <!--第一层层：背景图背景图，高斯模糊-->
+  <view class="bg">
+    <image class="poster" mode="scaleToFill" src="{{imageURL}}"></image>
+  </view>
+  <!--第二层层：灰色蒙层-->
+  <view class="bg-gray">
+  <!--第三层：player层-->
+  <view style="display: {{listShow === true ? 'none' : ''}}">
+    <!--弹幕  -->
+     <view class="doommview">
+    <block wx:for="{{barrageList}}" wx:key="id">
+      <text wx:if="{{item.isLaunch}}" class="aon" style="animation: first  5s  linear forwards;top:{{item.top}}%;color:{{item.color}}; backface-visibility: hidden;perspective:1000;">
+            <block checked wx:if="{{doomswitch}}">
+            {{item.danmuText}}
+            </block>
+        </text>
+    </block>
+  </view>
+    <!--旋转图-->
+    <view class="rotate-disk-container" wx:if="{{isDetail==false}}" bindtap="exdetail">
+      <view class="rotate-disk {{pauseStatus === false ? 'rotate-360' : 'rotate-360-paused'}}">
+        <image class="poster" src="{{imageURL}}"></image>
+      </view>
+    </view>
+    <view class="dj-introduction" bindtap="exdetail" wx:else>
+     <text selectable='false' class='introduction'>电台心声</text>
+     <text selectable='false' class='introduction'>圣诞将至, 我们开始培养你的恋爱细胞.子涵亲自授课, 请做好笔记</text>
+    </view>
+    <!--操作-->
+    <view class="title-container">
+      <view class="title-left"></view>
+      <view class="text">
+        <view>
+          <text class="name">{{oneInfo.title}}</text>
+        </view>
+      </view>
+    </view>
+    <view class='DoomSwitch'>
+        <text class='text'>弹幕</text>
+        <switch checked="true" bindchange="DoomSwitch" />
+    </view>
+    <view class="slider-container">
+      <text class="slider-time">{{minMin}}</text>
+      <slider value="{{sliderValue}}" bindchange="bindSliderchange" min="0" max="100" activeColor="#13beec" style="width: 62%;margin: 0;" />
+      <text class="slider-time">{{maxMin}}</text>
+    </view>
+    <view class="operation-container">
+      <image src="../../assets/img/prev.png" class="icon-prev" bindtap="bindTapPrev"></image>
+      <image src="{{pauseStatus === false ? '../../assets/img/pause.png' : '../../assets/img/play.png'}}" class="icon-play" bindtap="bindTapPlay">
+      </image>
+      <image src="../../assets/img/next.png" class="icon-next" bindtap="bindTapNext"></image>
+      <image src="../../assets/img/estimate.png" class="icon-estimate" bindtap="modalinput"></image>
+    </view>
+  </view>
+  </view>
+  <modal hidden="{{hiddenmodalput}}" title="评论" confirm-text="确认" cancel-text="取消" bindcancel="cancel" bindconfirm="bindDoom">
+    <input type='text' placeholder="请输入内容" name="assesment_text" value="{{inputDoomData}}" bindblur='DoomInput' />
+  </modal>
+</view>
