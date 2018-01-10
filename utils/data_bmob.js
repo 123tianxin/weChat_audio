@@ -72,13 +72,13 @@ function getBarrageInfo(audioID, callback){
   // 查询所有数据
   query.find({
     success: function (results) {
-      console.log("barrage-->共查询到 " + results.length + " 条记录");
+      // console.log("barrage-->共查询到 " + results.length + " 条记录");
       // 循环处理查询到的数据
       let barrageInfo = []
       for (var i = 0; i < results.length; i++) {
         var object = results[i];
         barrageInfo.push(object.attributes)
-        console.log(object)
+        // console.log(object)
       }
       callback(barrageInfo)
     },

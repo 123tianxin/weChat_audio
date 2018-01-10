@@ -61,7 +61,7 @@ Page({
     //初始化this.data.BarrageList数据
     barrage.initBarrageData(that)
 
-    console.log("index.js-->", this.data)
+    // console.log("index.js-->", this.data)
   },
   onShow: function(){
     console.log("onShow, index.js")

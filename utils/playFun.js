@@ -4,7 +4,7 @@ var common = require('common.js')
 function setDuration(that) {
   wx.getBackgroundAudioPlayerState({
     success: function (res) {
-      console.log("setDuration-->", res)
+      // console.log("setDuration-->", res)
       let { status, duration, currentPosition } = res
       if (status === 1 || status === 0) {
         //修改弹幕是否发射的值
@@ -22,7 +22,7 @@ function setDuration(that) {
 
 function play(that) {
   let { oneInfo, audioIndex, sliderValue, duration, currentPosition } = that.data
-  console.log("play-->", this.data)
+  // console.log("play-->", this.data)
   wx.playBackgroundAudio({
     dataUrl: that.data.audioURL,
     title: oneInfo.title,
