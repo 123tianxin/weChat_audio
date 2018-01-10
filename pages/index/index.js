@@ -46,7 +46,7 @@ Page({
     }
 
     let that = this
-    let { dataInfo, oneInfo, barrageInfo, duration } = app.globalData
+    let { dataInfo, oneInfo, barrageInfo } = app.globalData
     this.setData({
       dataInfo: dataInfo,
       oneInfo: oneInfo,
@@ -54,8 +54,8 @@ Page({
       imageURL: buildURL.getImageURL(oneInfo.date),
       audioURL: buildURL.getAudioURL(oneInfo.date),
       minMin: '00:00',
-      maxMin: common.stotime(duration),
-      duration: duration,
+      maxMin: common.stotime(oneInfo.duration),
+      duration: oneInfo.duration,
     })
 
     //初始化this.data.BarrageList数据
@@ -76,7 +76,7 @@ Page({
         console.log(res)
         let { status } = res
         let duration = that.data.duration
-        console.log("当前进度：", value * duration / 100)
+        // console.log("当前进度：", value * duration / 100)
         if (status === 2 || status === 1 || status === 0) {
           that.setData({
             minMin: common.stotime(parseInt(value * duration / 100)),
@@ -151,7 +151,7 @@ Page({
       minMin: "00:00",
     })
 
-    dataBmob.getOneInfo(this.data.dataInfo[audioIndexNow], function (oneInfo) {
+    dataBmob.getOneInfo(that.data.dataInfo[audioIndexNow], function (oneInfo) {
       that.setData({
         oneInfo: oneInfo,
         imageURL: buildURL.getImageURL(oneInfo.date),
@@ -160,7 +160,8 @@ Page({
         pauseStatus: false,
         sliderValue: 0,
         currentPosition: 0,
-        duration: 0,
+        duration: oneInfo.duration,
+        maxMin: common.stotime(oneInfo.duration)
       })
       dataBmob.getBarrageInfo(that.data.dataInfo[audioIndexNow], function (barrageInfo) {
         that.setData({
@@ -184,7 +185,7 @@ Page({
   },
   //弹幕评论绑定事件
   bindDoom: function (e) {
-    console.log(e);
+    // console.log(e);
     let { dataInfo, minMin, audioIndex, inputDoomData, barrageList, hiddenmodalput} = this.data
     let barrageInfo = {
       isLaunch: false,
@@ -202,7 +203,7 @@ Page({
   },
   //输入评论之后离开焦点
   DoomInput: function (e) {
-    console.log(e);
+    // console.log(e);
     if (e.detail.value && barrage.getLength(e.detail.value) <= 15) {
       this.setData({
         inputDoomData: e.detail.value
@@ -214,7 +215,7 @@ Page({
   },
   //弹幕开关
   DoomSwitch: function (e) {
-    console.log(e);
+    // console.log(e);
     if (this.data.doomswitch == true) {
       this.setData({
         doomswitch: false

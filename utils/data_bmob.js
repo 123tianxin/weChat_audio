@@ -31,6 +31,7 @@ function getOneInfo(objectID, callback){
       oneInfo.title = result.get("title")
       oneInfo.des = result.get("des")
       oneInfo.date = result.get("date")
+      oneInfo.duration = result.get("duration")
       callback(oneInfo)
     },
     error: function (result, error) {
@@ -54,6 +55,7 @@ function getAllInfo(callback){
         temp_content.title = object.get('title')
         temp_content.date = object.get('date')
         temp_content.list_content = object.get('des')
+        temp_content.duration = object.get("duration")
         temp_content.list_img = buildURL.getImageURL(temp_content.date)
         list_content.push(temp_content)
       }
@@ -100,7 +102,7 @@ function saveOneBarrageInfo(audioID, barrageInfo){
   barrageData.save(null, {
     success: function (result) {
       // 添加成功，返回成功之后的objectId（注意：返回的属性名字是id，不是objectId），你还可以在Bmob的Web管理后台看到对应的数据
-      console.log("日记创建成功, objectId:" + result.id);
+      // console.log("日记创建成功, objectId:" + result.id);
     },
     error: function (result, error) {
       // 添加失败

@@ -21,13 +21,21 @@ Page({
   onBindTap: function (event) {
     console.log("点击列表图片，时间触发", event.currentTarget)
     app.globalData.nowIndexObjectId = event.currentTarget.id
-    wx.switchTab({
-      url: "/pages/index/index",
-      success: function (e) {
-        var page = getCurrentPages().pop();
-        if (page == undefined || page == null) return;
-        page.onLoad();
-      }
+    let nowIndexObjectId = app.globalData.nowIndexObjectId
+    dataBmob.getOneInfo(nowIndexObjectId, function(oneInfo){
+      app.globalData.oneInfo = oneInfo
+      dataBmob.getBarrageInfo(nowIndexObjectId, function (barrageInfo) {
+        app.globalData.barrageInfo = barrageInfo
+
+        wx.switchTab({
+          url: "/pages/index/index",
+          success: function (e) {
+            var page = getCurrentPages().pop();
+            if (page == undefined || page == null) return;
+            page.onLoad();
+          }
+        })
+      })
     })
   },
 

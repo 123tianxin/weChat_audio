@@ -66,18 +66,18 @@ App({
     let that = this
     let oneInfo = that.globalData.oneInfo
     let audioURL = buildURL.getAudioURL(oneInfo.date)
-    let audioManager = wx.getBackgroundAudioManager()
-    audioManager.src = audioURL
-    let timer = setInterval(function(){
-      if (audioManager.duration != null && audioManager.duration != 0){
-        // console.log("audioManager-->", audioManager.duration)
-        audioManager.pause()
-        that.globalData.duration = parseInt(audioManager.duration)
-        clearInterval(timer)
-      }else{
-        // console.log("else-->", audioManager.duration)
-      }
-    }, 20)
+    // let audioManager = wx.getBackgroundAudioManager()
+    // audioManager.src = audioURL
+    // let timer = setInterval(function(){
+    //   if (audioManager.duration != null && audioManager.duration != 0){
+    //     // console.log("audioManager-->", audioManager.duration)
+    //     audioManager.pause()
+    //     that.globalData.duration = parseInt(audioManager.duration)
+    //     clearInterval(timer)
+    //   }else{
+    //     // console.log("else-->", audioManager.duration)
+    //   }
+    // }, 20)
   },
   getUserInfo:function(cb){
     var that = this
@@ -102,7 +102,7 @@ App({
     dataInfo: null,       //记录所有音频文件的Id
     oneInfo: null,        //记录第一个应该被初始化的音频文件
     barrageInfo: null,    //记录第一个音频文件的弹幕数据
-    duration: 0,          //记录初始化音频文件总时长
+    // duration: 0,          //记录初始化音频文件总时长
     nowIndexObjectId: ''  //记录当前播放的音频文件 
   }
 })
